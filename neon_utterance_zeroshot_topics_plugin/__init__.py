@@ -28,9 +28,12 @@ from flair.models import TARSClassifier
 from nltk.corpus import wordnet as wn
 
 from neon_transformers import UtteranceTransformer
+from neon_transformers.tasks import UtteranceTask
 
 
 class TarsTopicExtractor(UtteranceTransformer):
+    task = UtteranceTask.TOPIC_EXTRACTION
+
     def __init__(self, name="TarsTopic", priority=99):
         super().__init__(name, priority)
         nltk.download("wordnet")
